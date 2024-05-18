@@ -8,11 +8,12 @@ void printArray(int arr[],int length){
     printf("\n");
 }
 
-void binaryInsertSort(int arr[], int len) {
+//这个start/end是数组下标
+void binaryInsertSort(int arr[], int start,int end) {
     //对每个数据都要进行排序
-    for(int i = 1; i < len; i++){
-        int key = arr[i];
-        int left =0;
+    for(int i = start+1; i <= end; i++){
+        int key  = arr[i];
+        int left = start;
         int right = i-1;
         //开始二分查找插入位置
         while(left <= right){
@@ -39,7 +40,7 @@ int main(){
   int len=sizeof(arr)/sizeof(arr[0]);
   printArray(arr,len); 
   
-  binaryInsertSort(arr,len);
+  binaryInsertSort(arr,0,len-1);
   printArray(arr,len);
   
   return 0; 	
